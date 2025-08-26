@@ -1,10 +1,10 @@
 import React from "react";
 
-const Footer= () => {
+const Footer = () => {
   return (
     <footer
       style={{
-        backgroundColor: "#222",
+        backgroundColor: "#FF9B2F", // updated color
         color: "#fff",
         textAlign: "center",
         padding: "15px 20px",

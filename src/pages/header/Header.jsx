@@ -16,7 +16,24 @@ const Header = () => {
         boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
       }}
     >
-      <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>Hritik</div>
+      <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+
+      <Link
+          to="/"
+          style={{
+            color: "#fff",
+            textDecoration: "none",
+            fontSize: "16px",
+            padding: "5px 12px",
+            borderRadius: "8px",
+            transition: "background 0.3s ease",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
+          onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+        >
+          Neha
+        </Link>
+      </div>
       <nav style={{ display: "flex", gap: "20px" }}>
         <Link
           to="/main/neha"
