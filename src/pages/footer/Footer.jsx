@@ -15,7 +15,7 @@ const Footer = () => {
       }}
     >
       <p style={{ margin: 0, fontSize: "14px" }}>
-        © {new Date().getFullYear()} Hritik. All rights reserved.
+        © {new Date().getFullYear()} All rights reserved.
       </p>
     </footer>
   );

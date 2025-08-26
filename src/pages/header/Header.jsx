@@ -51,7 +51,7 @@ const Header = () => {
           Neha
         </Link>
         <Link
-          to="/pooja"
+          to="/main/pooja"
           style={{
             color: "#fff",
             textDecoration: "none",
