@@ -31,12 +31,12 @@ const Header = () => {
           onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
         >
-          Neha
+          Home
         </Link>
       </div>
       <nav style={{ display: "flex", gap: "20px" }}>
         <Link
-          to="/main/neha"
+          to="/neha"
           style={{
             color: "#fff",
             textDecoration: "none",
@@ -51,7 +51,7 @@ const Header = () => {
           Neha
         </Link>
         <Link
-          to="/main/pooja"
+          to="/pooja"
           style={{
             color: "#fff",
             textDecoration: "none",
