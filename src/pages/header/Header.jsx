@@ -36,7 +36,7 @@ const Header = () => {
       </div>
       <nav style={{ display: "flex", gap: "20px" }}>
         <Link
-          to="/neha"
+          to="neha"
           style={{
             color: "#fff",
             textDecoration: "none",
@@ -51,7 +51,7 @@ const Header = () => {
           Neha
         </Link>
         <Link
-          to="/main/pooja"
+          to="pooja"
           style={{
             color: "#fff",
             textDecoration: "none",
