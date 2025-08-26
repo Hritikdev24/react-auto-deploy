@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,HashRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
 import Skeleton from "./pages/skeleton";
 // Lazy load the gallery components
@@ -8,7 +8,8 @@ const Pooja = lazy(() => import("./pages/pooja/Pooja"));
 
 function App() {
   return (
-    <BrowserRouter>
+ 
+      <HashRouter>
       <Routes>
         {/* Default root route */}
         <Route path="/" element={<Main />} />
@@ -31,8 +32,9 @@ function App() {
             }
           />
         </Route>
-      </Routes>
-    </BrowserRouter>
+      </Routes> 
+      </HashRouter>
+    
   );
 }
 
