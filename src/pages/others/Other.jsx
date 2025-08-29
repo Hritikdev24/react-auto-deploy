@@ -63,7 +63,7 @@ const Other = () => {
             }}
           >
             <img
-              src={`https://nest-rest-service-k0ad.onrender.com/images/${img}`}
+              src={`https://nest-rest-service-k0ad.onrender.com/images/images/${img}`}
               alt={`Other ${index + 1}`}
               style={{
                 width: "100%",
