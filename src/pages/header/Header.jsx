@@ -65,6 +65,23 @@ const Header = () => {
         >
           Pooja
         </Link>
+
+
+          <Link
+          to="other"
+          style={{
+            color: "#fff",
+            textDecoration: "none",
+            fontSize: "16px",
+            padding: "5px 12px",
+            borderRadius: "8px",
+            transition: "background 0.3s ease",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
+          onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+        >
+          others
+        </Link>
       </nav>
     </header>
   );

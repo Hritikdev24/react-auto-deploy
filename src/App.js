@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Main from "./pages/main/Main";
 import Skeleton from "./pages/skeleton";
 import DefaultGallery from "./pages/default/Default";
+
 // Lazy load the gallery components
 const Neha = lazy(() => import("./pages/neha/Neha"));
 const Pooja = lazy(() => import("./pages/pooja/Pooja"));
-
+const Other = lazy(() => import("./pages/others/Other"));
 function App() {
   return (
     <HashRouter>
@@ -36,6 +37,21 @@ function App() {
                 }
               >
                 <Pooja />
+              </Suspense>
+            }
+          />
+
+             <Route
+            path="other"
+            element={
+              <Suspense
+                fallback={
+                  <div>
+                    <Skeleton count={10} />
+                  </div>
+                }
+              >
+                <Other />
               </Suspense>
             }
           />
