@@ -8,7 +8,9 @@ const Other = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await fetch("https://nest-rest-service-k0ad.onrender.com/api/auth/images");
+        const res = await fetch(
+          "https://nest-rest-service-k0ad.onrender.com/api/auth/images"
+        );
         const data = await res.json();
         if (data.success) {
           setImages(data.data);
@@ -57,7 +59,7 @@ const Other = () => {
               overflow: "hidden",
               boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
               background: "#fff",
-              transition: "transform 0.2s ease, boxShadow 0.2s ease",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease",
             }}
           >
             <img
@@ -65,14 +67,34 @@ const Other = () => {
               alt={`Other ${index + 1}`}
               style={{
                 width: "100%",
-                height: "300px",
-                objectFit: "contain", // shows full image without cropping
+                height: "250px",
+                objectFit: "cover", // fills card nicely
                 display: "block",
-                backgroundColor: "#f4f6f8", // padding effect
               }}
             />
           </div>
         ))}
+      </div>
+
+      {/* Video Section */}
+      <div
+        style={{
+          marginTop: "40px",
+          textAlign: "center",
+        }}
+      >
+        <h2 style={{ color: "#333", marginBottom: "15px" }}>Featured Video</h2>
+        <video
+          src={`https://nest-rest-service-k0ad.onrender.com/images/videos/vibhu.mp4`}
+          controls
+          poster={images[images.length-0]}
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+            borderRadius: "12px",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+          }}
+        ></video>
       </div>
     </div>
   );
