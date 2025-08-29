@@ -75,9 +75,9 @@ const Other = () => {
               alt={`Other ${index + 1}`}
               style={{
                 width: "100%",
-                aspectRatio: "4/3", // keeps proportional size
-                objectFit: "fit",
-                display: "block",
+               maxWidth: "600px", // responsive on big screens
+               height: "auto",
+               borderRadius: "12px",
               }}
             />
           </div>
