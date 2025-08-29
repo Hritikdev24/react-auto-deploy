@@ -23,6 +23,14 @@ const Other = () => {
     fetchImages();
   }, []);
 
+  // Get the last image from array for video poster
+  const lastImage =
+    images.length > 0
+      ? `https://nest-rest-service-k0ad.onrender.com/images/images/${
+          images[images.length - 1]
+        }`
+      : "https://via.placeholder.com/600x400?text=Video";
+
   return (
     <div
       style={{
@@ -67,8 +75,8 @@ const Other = () => {
               alt={`Other ${index + 1}`}
               style={{
                 width: "100%",
-                height: "250px",
-                objectFit: "cover", // fills card nicely
+                aspectRatio: "4/3", // keeps proportional size
+                objectFit: "cover",
                 display: "block",
               }}
             />
@@ -87,9 +95,10 @@ const Other = () => {
         <video
           src={`https://nest-rest-service-k0ad.onrender.com/images/videos/vibhu.mp4`}
           controls
-          poster={images[images.length-0]}
+          poster={lastImage}
           style={{
-            maxWidth: "100%",
+            width: "100%",
+            maxWidth: "600px", // responsive on big screens
             height: "auto",
             borderRadius: "12px",
             boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
