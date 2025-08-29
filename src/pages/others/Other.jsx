@@ -76,7 +76,7 @@ const Other = () => {
               style={{
                 width: "100%",
                 aspectRatio: "4/3", // keeps proportional size
-                objectFit: "cover",
+                objectFit: "fit",
                 display: "block",
               }}
             />
