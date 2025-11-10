@@ -2,6 +2,28 @@ import React from 'react';
 import { neha } from '../../assets/neha/neha';
 
 const Neha = () => {
+
+  const canShare = !!navigator.share;
+
+  const handleShare = async () => {
+    if (canShare) {
+      try {
+        await navigator.share({
+          "number one doors",
+          "checout the doors",
+          "https://angular.mynicksbuilding.com/view-door-details?data=U2FsdGVkX1%252BH%252FWwKrHZ%252FXGNNKvY0W60BPX5eQ6coj%252FEOW1OoPQYLeyYLQ4TIVgJhtcm0WRXgDadgUznT%252FhC0rD3PcQmSE2dqQEjfL8X9nMk%253D",
+        });
+        console.log('Shared successfully');
+      } catch (error) {
+        console.error('Sharing failed', error);
+      }
+    } else {
+      // Fallback for unsupported browsers: copy url to clipboard or show a message
+      navigator.clipboard.writeText(url);
+      alert('Link copied to clipboard!');
+    }
+  };
+
   return (
     <div
       style={{
@@ -21,7 +43,9 @@ const Neha = () => {
       >
         Neha Gallery
       </h1>
-
+ <button onClick={handleShare} disabled={!canShare} style={{ padding: '8px 16px', cursor: 'pointer' }}>
+      Share This
+    </button>
       {/* Responsive Image Grid */}
       <div
         style={{
