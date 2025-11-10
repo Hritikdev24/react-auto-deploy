@@ -2,25 +2,28 @@ import React from 'react';
 import { neha } from '../../assets/neha/neha';
 
 const Neha = () => {
-
   const canShare = !!navigator.share;
+  const currentUrl = "https://angular.mynicksbuilding.com/view-door-details?data=U2FsdGVkX1%252BH%252FWwKrHZ%252FXGNNKvY0W60BPX5eQ6coj%252FEOW1OoPQYLeyYLQ4TIVgJhtcm0WRXgDadgUznT%252FhC0rD3PcQmSE2dqQEjfL8X9nMk%253D";
 
   const handleShare = async () => {
     if (canShare) {
       try {
         await navigator.share({
-          "number one doors",
-          "checout the doors",
-          "https://angular.mynicksbuilding.com/view-door-details?data=U2FsdGVkX1%252BH%252FWwKrHZ%252FXGNNKvY0W60BPX5eQ6coj%252FEOW1OoPQYLeyYLQ4TIVgJhtcm0WRXgDadgUznT%252FhC0rD3PcQmSE2dqQEjfL8X9nMk%253D",
+          title: "Number One Doors",
+          text: "Check out the doors",
+          url: currentUrl,
         });
         console.log('Shared successfully');
       } catch (error) {
         console.error('Sharing failed', error);
       }
     } else {
-      // Fallback for unsupported browsers: copy url to clipboard or show a message
-      navigator.clipboard.writeText(url);
-      alert('Link copied to clipboard!');
+      try {
+        await navigator.clipboard.writeText(currentUrl);
+        alert('Link copied to clipboard!');
+      } catch {
+        alert('Failed to copy link to clipboard');
+      }
     }
   };
 
@@ -33,7 +36,6 @@ const Neha = () => {
         fontFamily: 'Arial, sans-serif',
       }}
     >
-      {/* Page Title */}
       <h1
         style={{
           textAlign: 'center',
@@ -43,10 +45,16 @@ const Neha = () => {
       >
         Neha Gallery
       </h1>
- <button onClick={handleShare} disabled={!canShare} style={{ padding: '8px 16px', cursor: 'pointer' }}>
-      Share This
-    </button>
-      {/* Responsive Image Grid */}
+
+      <button
+        onClick={handleShare}
+        disabled={!canShare && !navigator.clipboard}
+        style={{ padding: '8px 16px', cursor: 'pointer', marginBottom: '20px' }}
+        aria-label="Share this page"
+      >
+        Share This
+      </button>
+
       <div
         style={{
           display: 'grid',
@@ -71,9 +79,9 @@ const Neha = () => {
               style={{
                 width: '100%',
                 height: '300px',
-                objectFit: 'contain', // shows full image without cropping
+                objectFit: 'contain',
                 display: 'block',
-                backgroundColor: '#f4f6f8', // optional for padding effect
+                backgroundColor: '#f4f6f8',
               }}
             />
           </div>
