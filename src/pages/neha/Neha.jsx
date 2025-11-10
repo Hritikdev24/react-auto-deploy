@@ -2,7 +2,10 @@ import React from 'react';
 import { neha } from '../../assets/neha/neha';
 
 const Neha = () => {
-  const canShare = !!navigator.share;
+  // Detect mobile devices (very basic check) and Web Share API support
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const canShare = !!navigator.share && isMobile;
+
   const currentUrl = "https://angular.mynicksbuilding.com/view-door-details?data=U2FsdGVkX1%252BH%252FWwKrHZ%252FXGNNKvY0W60BPX5eQ6coj%252FEOW1OoPQYLeyYLQ4TIVgJhtcm0WRXgDadgUznT%252FhC0rD3PcQmSE2dqQEjfL8X9nMk%253D";
 
   const handleShare = async () => {
@@ -28,21 +31,8 @@ const Neha = () => {
   };
 
   return (
-    <div
-      style={{
-        padding: '20px',
-        backgroundColor: '#f4f6f8',
-        minHeight: '100vh',
-        fontFamily: 'Arial, sans-serif',
-      }}
-    >
-      <h1
-        style={{
-          textAlign: 'center',
-          marginBottom: '30px',
-          color: '#ff69b4',
-        }}
-      >
+    <div style={{ padding: '20px', backgroundColor: '#f4f6f8', minHeight: '100vh', fontFamily: 'Arial, sans-serif' }}>
+      <h1 style={{ textAlign: 'center', marginBottom: '30px', color: '#ff69b4' }}>
         Neha Gallery
       </h1>
 
