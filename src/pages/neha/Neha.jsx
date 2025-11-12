@@ -12,7 +12,7 @@ const Neha = () => {
     if (canShare) {
       try {
         // Fetch the first image from the gallery and convert to file for sharing preview
-        const response = await fetch(neha[0].src);
+        const response = await fetch(neha[7].src);
         const blob = await response.blob();
         const file = new File([blob], 'preview.jpg', { type: blob.type });
 
@@ -20,7 +20,7 @@ const Neha = () => {
           title: "Number One Doors",
           text: "Check out the doors",
           url: currentUrl,
-          // files: [file],
+          files: [file],
         };
 
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
