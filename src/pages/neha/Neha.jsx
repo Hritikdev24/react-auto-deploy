@@ -20,7 +20,7 @@ const Neha = () => {
           title: "Number One Doors",
           text: "Check out the doors",
           url: currentUrl,
-          files: [file],
+          // files: [file],
         };
 
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
