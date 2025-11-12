@@ -11,12 +11,24 @@ const Neha = () => {
   const handleShare = async () => {
     if (canShare) {
       try {
-        await navigator.share({
+        // Fetch the first image from the gallery and convert to file for sharing preview
+        const response = await fetch(neha[0].src);
+        const blob = await response.blob();
+        const file = new File([blob], 'preview.jpg', { type: blob.type });
+
+        const shareData = {
           title: "Number One Doors",
           text: "Check out the doors",
           url: currentUrl,
-        });
-        console.log('Shared successfully');
+          files: [file],
+        };
+
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share(shareData);
+          console.log('Shared successfully');
+        } else {
+          alert('Sharing files is not supported on this device/browser');
+        }
       } catch (error) {
         console.error('Sharing failed', error);
       }
